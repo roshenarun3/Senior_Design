@@ -1,0 +1,34 @@
+% James' version of the Motor Combo function
+function D = James_MotorCombo(Combo_number)
+    % Function Description
+    % Takes in a number coresponding to a motor and prop combination and
+    % outputs the struct "D" which contains all Data related to the information
+    
+    % Offset to ignore all the column headers    
+    i = Combo_number+2; 
+    
+    % Read data in table
+    data = readmatrix('Acceptable_Motors2.csv'); 
+    
+    % Thrust struct for all thrust values of a motor
+    Thrust = struct("thrustperthrottle",[ data(2,12:26) ; data(i,12:26)]')
+
+    % Current struct for all current values of a motor
+    Current = struct("currentperthrottle",[ data(2,27:41) ; data(i,27:41)]')
+
+    % Power struct for all power values of a motor
+    Power = struct("powerperthrottle",[ data(2,42:56) ; data(i,42:56)]')
+
+    % Rpm  struct for all rpm values of a motor
+    Rpm = struct("rpmperthrottle",[ data(2,57:71) ; data(i,57:71)]')
+
+    % Compiles the static characteristics and then puts the structs above
+    % into a larger struct so we can treat them all as one combination
+    data = readtable('Acceptable_Motors2.csv', "Delimiter", ',');
+    i = Combo_number + 1;
+    D = struct("Motor_Name", data.Var1(i), "Cost", data.Var2(i), "Weight_g", data.Var3(i), "Kv", data.Var4(i), "MotorDiam", data.Dimensions_mm_(i), ...
+        "MotorLen", data.Var6(i), "ShaftDiam", data.Var7(i), "Volt_min", data.Voltages_V_(i), "Volt_max", data.Var9(i), "PropD", data.Var10(i),...
+        "Prop_Pitch", data.Var11(i), ...
+        "Thrust_g", Thrust, "Current_A",Current, "Power_W", Power, "Rpm", Rpm); 
+
+end 
