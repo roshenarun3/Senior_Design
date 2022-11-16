@@ -1,4 +1,4 @@
-function [P, TotalDownForce] = motorbat_thrustcheck(motor_combo, battery_sel, Payload)
+function [P, Total] = motorbat_thrustcheck(motor_combo, battery_sel, Payload)
     % Function Description
     % Takes in a motor combo number, battery, and payload value and checks
     % if the combination passes the required threshold from the mission
