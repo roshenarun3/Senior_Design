@@ -4,7 +4,8 @@ function [thrust_indx, thrust_N] = ThrustGivenF_WIP(D,F)
 % "F" and outputs the throttle required to maintian equilibrium
 
 % Variables
-% F = total Down force
+% F = total Down force\
+% D = Motor Data
 
 % Constants
 numMotors = 8;
