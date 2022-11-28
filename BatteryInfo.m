@@ -4,9 +4,9 @@ function D = BatteryInfo(Battery_number)
     % and returns a struct that contains all data related to Battery
 
     % cd into relevent folder
-    oldfolder = cd('CSVs')
+    oldfolder = cd('CSVs');
     % Read data in table
-    data = readtable('Battery Data 2.csv', "Delimiter", ',' ); 
+    data = readtable('Battery Data 2.csv', "Delimiter", ',','Range','A2:L17'); 
     
     % Offset to ignore all the column headers    
     i = Battery_number; 
