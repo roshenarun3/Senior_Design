@@ -4,6 +4,9 @@ function D = James_MotorCombo(Combo_number)
     % Takes in a number coresponding to a motor and prop combination and
     % outputs the struct "D" which contains all Data related to the information
     
+    % cd into relevent folder
+    oldfolder = cd('CSVs')
+    
     % Offset to ignore all the column headers    
     i = Combo_number+2; 
     
@@ -30,5 +33,7 @@ function D = James_MotorCombo(Combo_number)
     "MotorDiam",data.Var5(i),"MotorLen", data.Var6(i), "ShaftDiam", data.Var7(i), "Volt_min", data.Var8(i), "Volt_max", data.Var9(i), "PropD", data.Var10(i),...
     "Prop_Pitch", data.Var11(i), ...
     "Thrust_N", Thrust, "Current_A",Current, "Power_W", Power, "Rpm", Rpm); 
-
+    
+    % cd out to main
+    cd(oldfolder)
 end 
