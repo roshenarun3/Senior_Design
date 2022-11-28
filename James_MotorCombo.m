@@ -5,7 +5,7 @@ function D = James_MotorCombo(Combo_number)
     % outputs the struct "D" which contains all Data related to the information
     
     % cd into relevent folder
-    oldfolder = cd('CSVs')
+    oldfolder = cd('CSVs');
     
     % Offset to ignore all the column headers    
     i = Combo_number+2; 
@@ -35,5 +35,5 @@ function D = James_MotorCombo(Combo_number)
     "Thrust_N", Thrust, "Current_A",Current, "Power_W", Power, "Rpm", Rpm); 
     
     % cd out to main
-    cd(oldfolder)
+    cd(oldfolder);
 end 
