@@ -11,16 +11,16 @@ function D = James_MotorCombo(Combo_number)
     data = readmatrix('Acceptable_Motors3.csv');
     
     % Thrust struct for all thrust values of a motor
-    Thrust = [ data(1,12:26) ; data(i,12:26)]';
+    Thrust = [ data(2,12:26) ; data(i,12:26)]';
 
     % Current struct for all current values of a motor
-    Current = [ data(1,27:41) ; data(i,27:41)]';
+    Current = [ data(2,27:41) ; data(i,27:41)]';
 
     % Power struct for all power values of a motor
-    Power = [ data(1,42:56) ; data(i,42:56)]';
+    Power = [ data(2,42:56) ; data(i,42:56)]';
 
     % Rpm  struct for all rpm values of a motor
-    Rpm = [ data(1,57:71) ; data(i,57:71)]';
+    Rpm = [ data(2,57:71) ; data(i,57:71)]';
 
     % Compiles the static characteristics and then puts the structs above
     % into a larger struct so we can treat them all as one combination
