@@ -3,7 +3,7 @@
 clc; clear; close all;
 % initialize
 Passed_configs = zeros(1,4);
-Payload = 25; %lbs
+Payload = 55; %lbs
 count = 1;
 t = 0;
 %% loop
@@ -19,10 +19,16 @@ for i = 1:10
             if (CurrentCheck == 1 && ThrustCheck == 1)
                 t = t+1;
                 Passed_configs(t,:) = [t,i,j,k];
+                
+                %% Run the mission sim
+                Distance = 16; %Distance in miles
+                [Mission_Check, Bat_Remainder] = MissionSim(D, B, Payload, NB, Distance, TDF);
+                if Mission_Check == 1
+                    Passed_
             end
             count = count + 1;
-            % ahere
-            
+            % Mission Sim check
+
         end 
     end
 end
