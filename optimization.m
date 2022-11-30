@@ -4,11 +4,11 @@ clc; clear; close all;
 % initialize
 Passed_configs = zeros(1,5);
 Bat_Remainder_percent = zeros(1,2);
-Payload = 35; %lbs
+Payload = 25; %lbs
 count = 1;
 best = [];
 t = 0;
-Distance = 12; %distance in miles
+Distance = 16; %distance in miles
 % loop
 for i = 1:10
     for j = 1:15
@@ -31,6 +31,8 @@ for i = 1:10
         end 
     end
 end
+%% find best run
+format shortG
 disp(Passed_configs)
 % find best run
 [BRP,I] = max(Bat_Remainder_percent(:,2));
