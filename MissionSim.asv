@@ -24,7 +24,7 @@ Takeoff_Total_DF = TDF + Takeoff_Drag;
 Takeoff_thrust_total_estimate = thrust_N*8; 
 
 Battery_Cap_Discharge = 0.8; 
-Takeoff_Current_Draw = 8*D.Current_A(thrust_indx, 2);
+Takeoff_Current_Draw = 8*D.Current_A(thrust_indx, 2)
 Takeoff_Capacity_Usage_mAh = (((Takeoff_Est_t/3600)*Takeoff_Current_Draw)/Battery_Cap_Discharge)*1000; % mAh
 
 Bat_Remain_mAh = Bat_Remain_mAh - Takeoff_Capacity_Usage_mAh;
@@ -42,11 +42,11 @@ Cruising_As = Cruising_As*0.092903; % m^2
 P_row = 1.205; % kg/m^2 -- Air density
 C_d = 1.2; % Coefficient of Drag *double check* 
 
-Cruising_Drag = 0.5*P_row*(Cruising_s^2)*C_d*Cruising_As  ;
+Cruising_Drag = 0.5*P_row*(Cruising_s^2)*C_d*Cruising_As  
 syms Ft t1; 
 eqn1 = Ft*cosd(t1) == TDF;
 eqn2 = Ft*sind(t1) == Cruising_Drag;
-S = solve([eqn1, eqn2], [Ft,t1], "Real",true);
+S = solve([eqn1, eqn2], [Ft,t1], "Real",true)
 Thrust_Est_Cruise = double(S.Ft(1,1)); 
 Angle_Est_Cruise = double(S.t1(1,1));
 
@@ -60,9 +60,6 @@ Flight_Capacity_Usage_mAh = (((Cruising_Est_t/60)*Flight_Current_Draw)/Battery_C
 
 Bat_Remain_mAh = Bat_Remain_mAh - Flight_Capacity_Usage_mAh;
 
-%% Hover --------------------------------------------------------------
-
-%% Landing -------------------------------------------------------------
 if (Bat_Remain_mAh > 0)
     Check = true;
 else

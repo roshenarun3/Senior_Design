@@ -39,5 +39,4 @@ Motor_MaxThrustEst = 2 / 8  * 9.81 * WeightFS * ( Payload + (8*D.Weight_g/1000) 
     else
         Thrust_Check = true;
     end
-
 end
