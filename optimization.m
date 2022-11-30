@@ -1,5 +1,5 @@
 %% Optimization Script
-%% housekeeping
+% housekeeping
 clc; clear; close all;
 % initialize
 Passed_configs = zeros(1,5);
@@ -9,7 +9,7 @@ count = 1;
 best = [];
 t = 0;
 Distance = 12; %distance in miles
-%% loop
+% loop
 for i = 1:10
     for j = 1:15
         for k = 1:3
@@ -20,7 +20,7 @@ for i = 1:10
             [CurrentCheck, ThrustCheck, TDF] = Current_thrust_Check(D,B,Payload,k);
             % Tracking 
             if (CurrentCheck == 1 && ThrustCheck == 1)
-                %% Run the mission sim
+                % Run the mission sim
                 [Mission_Check, Bat_Remainder] = MissionSim(D, B, Payload, Distance, TDF);
                 if (Mission_Check == 1)
                     t = t+1;
@@ -32,7 +32,7 @@ for i = 1:10
     end
 end
 disp(Passed_configs)
-%% find best run
+% find best run
 [BRP,I] = max(Bat_Remainder_percent(:,2));
 best = Passed_configs(I,2:4);
 best_percent = num2str(BRP) + "%";
