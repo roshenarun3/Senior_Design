@@ -23,7 +23,7 @@ for i = 1:10
                 [Mission_Check, Bat_Remainder] = MissionSim(D, B, Payload, Distance, TDF);
                 if (Mission_Check == 1)
                     t = t+1;
-                    Bat_Remainder_percent = (Bat_Remainder/str2double(B.Battery_Cap_mAH)*100);
+                    Bat_Remainder_percent = [(Bat_Remainder/str2double(B.Battery_Cap_mAH)*100)];
                     Passed_configs(t,:) = [i,j,k, Bat_Remainder, Bat_Remainder_percent, Payload];
                 end
             end
@@ -35,7 +35,7 @@ format shortG
 disp(Passed_configs)
 % find best run
 [BRP,I] = max(Passed_configs(:,5));
-best = Passed_configs(I,:);
+best = Passed_configs(I,2:5);
 best_percent = num2str(BRP) + "%";
 format shortG
 fprintf('Best run configuration is [')
