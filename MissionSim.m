@@ -23,9 +23,9 @@ Takeoff_Total_DF = TDF + Takeoff_Drag;
 [thrust_indx, thrust_N] = ThrustGivenF_WIP(D, Takeoff_Total_DF);
 Takeoff_thrust_total_estimate = thrust_N*8; 
 
-Battery_Cap_Discharge = 0.8; 
+% Battery_Cap_Discharge = 0.8; 
 Takeoff_Current_Draw = 8*D.Current_A(thrust_indx, 2);
-Takeoff_Capacity_Usage_mAh = (((Takeoff_Est_t/3600)*Takeoff_Current_Draw)/Battery_Cap_Discharge)*1000; % mAh
+Takeoff_Capacity_Usage_mAh = (((Takeoff_Est_t/3600)*Takeoff_Current_Draw))*1000; % mAh
 
 Bat_Remain_mAh = Bat_Remain_mAh - Takeoff_Capacity_Usage_mAh;
 
@@ -56,7 +56,7 @@ Cruising_Est_t = (Distance/Cruising_s)/60; % in minutes
 
 
 Flight_Current_Draw = 8*D.Current_A(thrust_indx2, 2);
-Flight_Capacity_Usage_mAh = (((Cruising_Est_t/60)*Flight_Current_Draw)/Battery_Cap_Discharge)*1000; % mAh
+Flight_Capacity_Usage_mAh = (((Cruising_Est_t/60)*Flight_Current_Draw))*1000; % mAh
 
 Bat_Remain_mAh = Bat_Remain_mAh - Flight_Capacity_Usage_mAh;
 

@@ -4,7 +4,7 @@ clc; clear; close all;
 % initialize
 Passed_configs = zeros(1,6);
 Bat_Remainder_percent = [];
-Payload = 25; %lbs
+Payload = 26; %lbs
 count = 1;
 best = [];
 t = 0;
