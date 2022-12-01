@@ -28,7 +28,7 @@ WeightFS = 1.2;
 %Total Down Force
 TotalDownForce = 9.81 * WeightFS * ( Payload + (8*D.Weight_g/1000) + B.Weight_kg*NB );
 % Max thrust needed from motor estimation
-Motor_MaxThrustEst = 2.0 * 9.81 * WeightFS /8 * ( Payload + (8*D.Weight_g/1000) + B.Weight_kg*NB );
+Motor_MaxThrustEst = 1.75 / 8  * 9.81 * WeightFS * ( Payload + (8*D.Weight_g/1000) + B.Weight_kg*NB );
 
 % For later - >  When body weight is calculated/estimated
 % Motor_MaxThrustEst = 2 / 8  * 9.81 * WeightFS * ( Payload + (8*D.Weight_g/1000) + B.Weight_kg*NB + TOTALBODYWEIGHT )
